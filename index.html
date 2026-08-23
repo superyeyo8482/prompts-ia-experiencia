@@ -99,22 +99,33 @@
             color: #aaa;
             font-weight: 400;
         }
+        .botones {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         .boton {
             display: inline-block;
-            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
-            color: #0a0a1a;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 3rem;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
             transition: 0.3s;
-            border: none;
-            cursor: pointer;
+            min-width: 200px;
+            text-align: center;
+            color: white;
+        }
+        .boton-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        .boton-telegram {
+            background: linear-gradient(135deg, #0088cc, #004d7a);
         }
         .boton:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
         }
         .nota {
             text-align: center;
@@ -165,12 +176,13 @@
         </div>
 
         <div class="precio-box">
-            <div class="precio">$50 <small>MXN</small></div>
-            <div style="color:#8888aa; margin-top: 0.3rem;">$3 USD · Entrega inmediata</div>
+            <div class="precio"> <small>MXN</small></div>
+            <div style="color:#8888aa; margin-top: 0.3rem;"> USD · Entrega inmediata</div>
         </div>
 
-        <div style="text-align: center;">
-            <a class="boton" href="https://wa.me/5215546539933?text=Quiero%20los%205%20prompts">📲 Comprar por WhatsApp</a>
+        <div class="botones">
+            <a class="boton boton-whatsapp" href="https://wa.me/5215546539933?text=Quiero%20los%205%20prompts">📲 WhatsApp</a>
+            <a class="boton boton-telegram" href="https://t.me/+5215546539933?text=Quiero%20los%205%20prompts">✈️ Telegram</a>
         </div>
 
         <p class="nota">⚡ Solo 10 copias disponibles a este precio · Hoy es el día</p>
