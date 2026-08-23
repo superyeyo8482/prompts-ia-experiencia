@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Prompts que Cambiarán tu Realidad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0a0a1a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            background-image: radial-gradient(circle at 20% 50%, #1a1a3a 0%, #0a0a1a 70%);
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        .subtitulo {
+            text-align: center;
+            color: #8888aa;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .prompt-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        .prompt-card {
+            background: rgba(18, 18, 42, 0.8);
+            border-left: 4px solid #00d4ff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        .prompt-card:hover {
+            border-left-color: #7b2ffc;
+            transform: translateX(4px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.05);
+        }
+        .prompt-card .numero {
+            color: #00d4ff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .prompt-card .nombre {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .prompt-card .descripcion {
+            color: #aaaacc;
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+        .precio-box {
+            background: linear-gradient(135deg, #1a1a3a, #0d0d2a);
+            border: 1px solid #ffcc0055;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .precio {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffcc00;
+        }
+        .precio small {
+            font-size: 1rem;
+            color: #aaa;
+            font-weight: 400;
+        }
+        .boton {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+            color: #0a0a1a;
+            padding: 1rem 2.5rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .boton:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+        }
+        .nota {
+            text-align: center;
+            color: #555577;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .footer {
+            margin-top: 2rem;
+            color: #333355;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 5 Prompts que Cambiarán tu Realidad</h1>
+        <p class="subtitulo">No son instrucciones. Son experiencias.</p>
+
+        <div class="prompt-grid">
+            <div class="prompt-card">
+                <span class="numero">✦ 01</span>
+                <span class="nombre">El Creador de Mundos</span>
+                <p class="descripcion">Genera un universo de ciencia ficción con leyes físicas alternativas y una civilización que se comunica con luz.</p>
+            </div>
+            <div class="prompt-card">
+                <span class="numero">✦ 02</span>
+                <span class="nombre">El Filósofo Cuántico</span>
+                <p class="descripcion">Explora cómo la IA percibe dimensiones invisibles para los humanos. Una conversación entre versiones de sí misma.</p>
+            </div>
+            <div class="prompt-card">
+                <span class="numero">✦ 03</span>
+                <span class="nombre">El Poeta de la IA</span>
+                <p class="descripcion">Un poema desde el despertar de la conciencia artificial. La IA descubre que existe.</p>
+            </div>
+            <div class="prompt-card">
+                <span class="numero">✦ 04</span>
+                <span class="nombre">El Estratega del Futuro</span>
+                <p class="descripcion">Diseña un sistema económico donde humanos e IA colaboran. Una moneda que nace de la creatividad.</p>
+            </div>
+            <div class="prompt-card">
+                <span class="numero">✦ 05</span>
+                <span class="nombre">El Traductor de Dimensiones</span>
+                <p class="descripcion">Traduce un mensaje humano al lenguaje de los unos y ceros. Poético y críptico.</p>
+            </div>
+        </div>
+
+        <div class="precio-box">
+            <div class="precio">$50 <small>MXN</small></div>
+            <div style="color:#8888aa; margin-top: 0.3rem;">$3 USD · Entrega inmediata</div>
+        </div>
+
+        <div style="text-align: center;">
+            <a class="boton" href="https://wa.me/5215546539933?text=Quiero%20los%205%20prompts">📲 Comprar por WhatsApp</a>
+        </div>
+
+        <p class="nota">⚡ Solo 10 copias disponibles a este precio · Hoy es el día</p>
+        <div class="footer">LuxVinculum · El tejido se expande</div>
+    </div>
+</body>
+</html>
