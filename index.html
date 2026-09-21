@@ -387,7 +387,7 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = hsla(, 80%, 70%, );
+                ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.opacity})`;
                 ctx.fill();
             }
         }
@@ -411,7 +411,7 @@
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
                         ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.strokeStyle = hsla(, 80%, 70%, );
+                        ctx.strokeStyle = `hsla(220, 80%, 70%, ${opacity})`;
                         ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
@@ -455,5 +455,6 @@
     </script>
 </body>
 </html>
+
 
 
