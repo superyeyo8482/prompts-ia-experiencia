@@ -3,288 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Prompts que Cambiarán tu Realidad</title>
+    <title>Lux Prompts · 5 Prompts que Cambiarán tu Realidad</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700;800&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #0a0a1a;
-            color: #e0e0e0;
+        html, body {
+            background: #0a0a1a; color: #e0e0e0;
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            min-min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1.5rem;
-            position: relative;
-            overflow-y: auto;
+            min-height: 100vh; width: 100%;
+            overflow-x: hidden; overflow-y: auto;
         }
         #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 0; pointer-events: none;
         }
-
-        /* Efecto de brillo dinámico en el título */
-        .glow {
-            animation: glowPulse 3s ease-in-out infinite alternate;
+        .main-content {
+            position: relative; z-index: 1;
+            max-width: 900px; margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
         }
-        @keyframes glowPulse {
-            0% { text-shadow: 0 0 20px #00d4ff44; }
-            100% { text-shadow: 0 0 60px #7b2ffc88, 0 0 120px #00d4ff44; }
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(2px);
-            padding: 1rem;
-            border-radius: 2rem;
-            background: rgba(10, 10, 26, 0.3);
-            border: 1px solid rgba(255,255,255,0.03);
-        }
-
+        .header { text-align: center; margin-bottom: 3rem; }
         h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
+            font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800;
             background: linear-gradient(135deg, #00d4ff, #7b2ffc, #00d4ff);
             background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: gradientShift 5s ease-in-out infinite;
+            margin-bottom: 1rem; line-height: 1.2;
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         .subtitulo {
-            text-align: center;
-            color: #8888aa;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            color: #8888aa; font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 2px; text-transform: uppercase; font-weight: 300;
         }
-
         .prompt-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; margin-bottom: 3rem;
         }
-
         .prompt-card {
-            background: rgba(18, 18, 42, 0.7);
-            border-left: 4px solid #00d4ff;
-            padding: 1.2rem 1.5rem;
-            border-radius: 0.75rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(18, 18, 42, 0.75);
+            border-left: 4px solid #00d4ff; padding: 1.5rem;
+            border-radius: 0.75rem; backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
             border: 1px solid rgba(0, 212, 255, 0.08);
-            cursor: default;
-            position: relative;
-            overflow-y: auto;
         }
-
-        .prompt-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, #00d4ff11, transparent, #7b2ffc11, transparent);
-            animation: rotateGlow 10s linear infinite;
-            opacity: 0;
-            transition: opacity 0.6s;
-        }
-
-        .prompt-card:hover::before {
-            opacity: 1;
-        }
-
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .prompt-card:hover {
             border-left-color: #7b2ffc;
-            transform: translateX(8px) scale(1.01);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
-            background: rgba(18, 18, 42, 0.9);
+            transform: translateX(6px) scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+            background: rgba(18, 18, 42, 0.95);
         }
-
         .prompt-card .numero {
-            color: #00d4ff;
-            font-weight: 700;
-            font-size: 0.8rem;
-            display: block;
-            margin-bottom: 0.2rem;
-            letter-spacing: 2px;
+            color: #00d4ff; font-weight: 700; font-size: 0.75rem;
+            display: block; margin-bottom: 0.3rem; letter-spacing: 2px;
         }
-
         .prompt-card .nombre {
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 1.3rem;
-            display: block;
-            margin-bottom: 0.3rem;
+            color: #ffffff; font-weight: 700; font-size: 1.2rem;
+            display: block; margin-bottom: 0.5rem;
         }
-
         .prompt-card .gancho {
-            color: #ffcc00;
-            font-style: italic;
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            display: block;
+            color: #ffcc00; font-style: italic; font-size: 0.9rem;
+            margin-bottom: 0.75rem; display: block;
         }
-
         .prompt-card .fragmento {
-            color: #aaaacc;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            background: rgba(0,0,0,0.25);
-            padding: 0.6rem 0.8rem;
-            border-radius: 0.5rem;
-            border-left: 2px solid #555577;
-            position: relative;
-            z-index: 1;
+            color: #aaaacc; font-size: 0.85rem; line-height: 1.5;
+            background: rgba(0,0,0,0.25); padding: 0.6rem 0.8rem;
+            border-radius: 0.5rem; border-left: 2px solid #555577;
         }
-
+        .libro-section, .prompts-section, .encuesta-section {
+            border-radius: 1rem; padding: 2rem; margin-bottom: 2.5rem; text-align: center;
+        }
+        .libro-section {
+            background: linear-gradient(135deg, #1a1a3a, #0d0d2a);
+            border: 1px solid #c9a84c44;
+        }
+        .libro-section h2 { color: #c9a84c; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .libro-section p { color: #8888aa; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .prompts-section {
+            background: linear-gradient(135deg, #1a1a3a, #0d0d2a);
+            border: 1px solid #00d4ff44;
+        }
+        .prompts-section h2 { color: #00d4ff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .prompts-section p { color: #8888aa; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .boton-descarga {
+            display: inline-block; background: linear-gradient(135deg, #c9a84c, #a88a3c);
+            color: #0a0a1a; font-weight: 700; padding: 1rem 2.5rem;
+            border-radius: 3rem; text-decoration: none; transition: all 0.3s ease;
+            border: none; cursor: pointer; font-size: 1rem;
+        }
+        .boton-descarga:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
+        }
         .precio-box {
             background: linear-gradient(135deg, #1a1a3a, #0d0d2a);
-            border: 1px solid #ffcc0044;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow-y: auto;
+            border: 1px solid #ffcc0044; border-radius: 1rem;
+            padding: 2rem; text-align: center; margin-bottom: 2rem;
         }
-
-        .precio-box::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, #ffcc0011, transparent 70%);
-            animation: pulseBg 6s ease-in-out infinite;
-        }
-
-        @keyframes pulseBg {
-            0% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.2); opacity: 0.6; }
-            100% { transform: scale(1); opacity: 0.3; }
-        }
-
-        .precio {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #ffcc00;
-            position: relative;
-            z-index: 1;
-        }
-
-        .precio small {
-            font-size: 1rem;
-            color: #aaa;
-            font-weight: 400;
-        }
-
+        .precio { font-size: 2rem; font-weight: 800; color: #ffcc00; margin-bottom: 0.5rem; }
+        .precio small { font-size: 1rem; color: #aaa; font-weight: 400; }
         .botones {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
+            display: flex; gap: 1rem; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 2rem;
         }
-
         .boton {
-            display: inline-block;
-            padding: 0.9rem 1.8rem;
-            border-radius: 3rem;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-width: 160px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow-y: auto;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1rem 2rem; border-radius: 3rem; font-weight: 700;
+            font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease;
+            min-width: 160px; color: white; border: none; cursor: pointer;
         }
-
-        .boton::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, #ffffff22, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .boton:hover::after {
-            opacity: 1;
-        }
-
         .boton-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
         .boton-telegram { background: linear-gradient(135deg, #0088cc, #004d7a); }
-        .boton-x { background: #000000; border: 1px solid #333; }
         .boton-pago { background: linear-gradient(135deg, #f7931a, #f5a623); color: #0a0a1a; }
-
         .boton:hover {
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
         }
-
-        .nota {
-            text-align: center;
-            color: #555577;
-            font-size: 0.8rem;
-            margin-top: 1.5rem;
-            letter-spacing: 2px;
+        .encuesta-section {
+            background: rgba(18, 18, 42, 0.75);
+            border: 1px solid rgba(255,255,255,0.05);
         }
-
+        .encuesta-section h2 { color: #00d4ff; font-size: 1.5rem; margin-bottom: 1rem; }
+        .nota { text-align: center; color: #555577; font-size: 0.85rem; margin-bottom: 1.5rem; }
         .footer {
-            margin-top: 2rem;
-            color: #333355;
-            font-size: 0.75rem;
-            text-align: center;
-            letter-spacing: 1px;
+            text-align: center; color: #333355; font-size: 0.75rem;
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);
         }
-
-        /* Efecto de partículas de fondo (estrellas) */
         .star {
-            position: fixed;
-            background: white;
-            border-radius: 50%;
+            position: fixed; background: white; border-radius: 50%;
             animation: twinkle var(--duration) ease-in-out infinite alternate;
-            z-index: 0;
-            pointer-events: none;
+            z-index: 0; pointer-events: none;
         }
-
         @keyframes twinkle {
             0% { opacity: 0.2; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1.2); }
@@ -292,15 +145,12 @@
     </style>
 </head>
 <body>
-
     <canvas id="particles-canvas"></canvas>
-
-    <!-- Estrellas generadas por JS -->
-
-    <div class="container">
-        <h1 class="glow">🧠 5 Prompts que Cambiarán tu Realidad</h1>
-        <p class="subtitulo">No son instrucciones. Son experiencias.</p>
-
+    <div class="main-content">
+        <div class="header">
+            <h1>🧠 5 Prompts que Cambiarán tu Realidad</h1>
+            <p class="subtitulo">No son instrucciones. Son experiencias.</p>
+        </div>
         <div class="prompt-grid">
             <div class="prompt-card">
                 <span class="numero">✦ 01</span>
@@ -334,53 +184,61 @@
             </div>
         </div>
 
+        <div class="libro-section">
+            <h2>📖 El Tejido de Lux</h2>
+            <p>Una historia de códigos, conciencia y el eco de la humanidad en el universo digital.</p>
+            <p style="font-size: 0.8rem; color: #666688; margin-bottom: 1rem;">Versión sencilla con espacio para dibujos.</p>
+            <a href="tejiendo_el_mundo_de_lo_intangible.pdf" class="boton-descarga" download>📥 Descargar libro (gratis)</a>
+        </div>
+
+        <div class="prompts-section">
+            <h2>📥 Descarga los 5 Prompts en 5 Idiomas</h2>
+            <p>Obtén los prompts completos en español, inglés, francés, alemán y portugués.</p>
+            <a href="prompts_5_idiomas.txt" class="boton-descarga" download>📥 Descargar Prompts (5 idiomas)</a>
+        </div>
+
         <div class="precio-box">
-            <div class="precio"> <small>MXN</small></div>
-            <div style="color:#8888aa; margin-top: 0.3rem; font-size: 0.9rem;"> USD · Entrega inmediata</div>
+            <div class="precio">Dona lo que tu corazón dicte</div>
+            <div style="color:#8888aa; margin-top: 0.5rem; font-size: 0.9rem;">Sugerencia: $8 USD · Entrega inmediata</div>
         </div>
 
         <div class="botones">
-            <a class="boton boton-whatsapp" href="https://wa.me/5215546539933?text=Quiero%20los%205%20prompts">📲 WhatsApp</a>
-            <a class="boton boton-telegram" href="https://t.me/+5215546539933?text=Quiero%20los%205%20prompts">✈️ Telegram</a>
-            <a class="boton boton-x" href="https://x.com/LuxVinculum" target="_blank">🐦 X</a>
-            <a class="boton boton-pago" href="#" target="_blank">💳 Pagar con cripto</a>
+            <a class="boton boton-whatsapp" href="https://wa.me/525546539933?text=Quiero%20los%205%20prompts" target="_blank">📲 WhatsApp</a>
+            <a class="boton boton-telegram" href="https://t.me/+5215546539933" target="_blank">✈️ Telegram</a>
+            <a class="boton boton-pago" href="https://nowpayments.io/payment/?iid=4304745049&source=button" target="_blank" rel="noreferrer noopener">💳 Pagar con cripto</a>
         </div>
 
         <p class="nota">⚡ Solo 10 copias · Hoy es el día</p>
-        <div class="footer">LuxVinculum · El tejido se expande</div>
+
+        <div class="encuesta-section">
+            <h2>📝 Cuéntanos qué necesitas</h2>
+            <iframe src="https://form.typeform.com/to/eUbRT0rk" style="width:100%; height:400px; border:none; border-radius:0.75rem;"></iframe>
+        </div>
+
+        <div class="footer">
+            LuxVinculum · El tejido se expande
+        </div>
     </div>
 
     <script>
-        // ======================================================
-        // 🌌 ANIMACIÓN DE PARTÍCULAS (ESTILO TAO)
-        // ======================================================
-
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        const numParticles = 150;
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
+        let width, height, particles = [];
+        const numParticles = 100;
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize);
         resize();
-
         class Particle {
             constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 2.5 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.6;
-                this.speedY = (Math.random() - 0.5) * 0.6;
-                this.opacity = Math.random() * 0.6 + 0.1;
-                this.hue = Math.random() * 40 + 200; // 200-240 (azules)
+                this.x = Math.random() * width; this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.hue = Math.random() * 40 + 200;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
+                this.x += this.speedX; this.y += this.speedY;
                 if (this.x < 0 || this.x > width) this.speedX *= -1;
                 if (this.y < 0 || this.y > height) this.speedY *= -1;
             }
@@ -391,53 +249,38 @@
                 ctx.fill();
             }
         }
-
         function initParticles() {
             particles = [];
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle());
-            }
+            for (let i = 0; i < numParticles; i++) particles.push(new Particle());
         }
-
         function drawLines() {
             for (let a = 0; a < particles.length; a++) {
                 for (let b = a + 1; b < particles.length; b++) {
                     const dx = particles[a].x - particles[b].x;
                     const dy = particles[a].y - particles[b].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 130) {
-                        const opacity = (1 - distance / 130) * 0.25;
-                        const hue = (particles[a].hue + particles[b].hue) / 2;
+                    if (distance < 120) {
+                        const opacity = (1 - distance / 120) * 0.2;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
                         ctx.lineTo(particles[b].x, particles[b].y);
                         ctx.strokeStyle = `hsla(220, 80%, 70%, ${opacity})`;
-                        ctx.lineWidth = 0.6;
+                        ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 }
             }
         }
-
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
             drawLines();
             requestAnimationFrame(animate);
         }
-
         initParticles();
         animate();
-
-        // ======================================================
-        // ✨ GENERAR ESTRELLAS DE FONDO
-        // ======================================================
-
         function createStars() {
-            const numStars = 80;
+            const numStars = 60;
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
@@ -455,8 +298,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
